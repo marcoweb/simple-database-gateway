@@ -3,7 +3,7 @@ namespace DatabaseGateway;
 
 class Repository {
     protected $tableName;
-    
+
     public function select(array $criteria = []) {
         $sql = 'SELECT * FROM ' . $this->tableName;
         $parameters = [];

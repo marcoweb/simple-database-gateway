@@ -4,7 +4,11 @@ namespace DatabaseGateway;
 class Application {
     public function run() {
         $uri_segments = explode('/', trim($_SERVER['REQUEST_URI'], '/'));
-        $repository = new Repository($uri_segments[0]);
+        $repositoryName = 'DatabaseGateway\\' . ucfirst($uri_segments[0]);
+        if(class_exists($repositoryName))
+            $repository = new $repositoryName($uri_segments[0]);
+        else
+            $repository = new Repository($uri_segments[0]);
         $request_parameter = isset($uri_segments[1]) ? ['id' => $uri_segments[1]] : [];
         $body_parameters = json_decode(file_get_contents('php://input'), true);
         $result = null;
