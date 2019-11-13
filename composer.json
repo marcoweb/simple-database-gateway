@@ -1,0 +1,16 @@
+{
+    "name": "marcoweb/simple-database-gateway",
+    "description": "Forma simples para acesso a dados MySQL utilizando REST para projetos de estudo",
+    "version": "1.0.0-dev",
+    "authors": [
+        {
+            "name": "Marco Antônio Gusmão Carvalho",
+            "email" : "marcocarvalho.web@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "DatabaseGateway\\" : "src/"
+        }
+    }
+}
